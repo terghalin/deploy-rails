@@ -15,3 +15,8 @@ describe command('gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C27
 ') do
   its('exit_status') { should eq 0 }
 end
+
+describe command('ruby -v') do
+  it { should exist }
+  its('stdout') { should eq '/ruby 2.4/' }
+end
