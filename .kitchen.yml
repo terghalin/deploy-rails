@@ -19,6 +19,8 @@ suites:
   - name: default
     run_list:
       - recipe[rvm::default]
+      - recipe[nginx::default]
+      - recipe[railsapp::default]
     verifier:
       inspec_tests:
         - test/smoke/default
