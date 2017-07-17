@@ -5,6 +5,7 @@
 For testing with Chef InSpec, use this commands:
 
 ```shell
+berks install
 kitchen test
 ```
 ___

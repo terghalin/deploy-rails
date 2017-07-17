@@ -21,6 +21,8 @@ suites:
       - recipe[rvm::default]
       - recipe[nginx::default]
       - recipe[railsapp::default]
+      - recipe[postgresql]
+      - recipe[postgresql::server]
     verifier:
       inspec_tests:
         - test/smoke/default
