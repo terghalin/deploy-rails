@@ -1,24 +1,7 @@
 # Create user and group
+include_recipe 'rvm::user'
 
-group node['group']
-
-bash "give group sudo privileges" do
-  code <<-EOH
-    sed -i '/%#{node['group']}.*/d' /etc/sudoers
-    echo '%#{node['group']} ALL=(ALL) NOPASSWD:ALL ' >> /etc/sudoers
-  EOH
-  not_if "grep -xq '%#{node['group']} ALL=(ALL) NOPASSWD:ALL ' /etc/sudoers"
-end
-
-# create user
-user node['user']['name'] do
-  gid node['group']
-  home "/home/#{node['user']['name']}"
-  password node['user']['password']
-  shell '/bin/bash'
-  manage_home true
-end
-
+# Add GPG key
 execute "Adding gpg key to #{node['user']['name']}" do
 
   user node['user']['name']
