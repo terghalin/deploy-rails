@@ -17,3 +17,9 @@ end
 describe command('su - railsapp -c "rvm version"') do
   its('stdout') { should include 'rvm' }
 end
+
+%w(postgresql postgresql-contrib git-core curl libpq-dev zlib1g-dev build-essential imagemagick libffi-dev python-software-properties python-psycopg2).each do |pkg|
+  describe package(pkg) do
+    it { should be_installed }
+  end
+end
