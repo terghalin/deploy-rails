@@ -7,3 +7,5 @@ For testing with Chef InSpec, use this commands:
 ```shell
 kitchen test
 ```
+___
+ChefDK required
