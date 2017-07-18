@@ -41,3 +41,10 @@ end
 describe command('su - postgres -c "psql -lqt | cut -d \| -f 1 | grep -qw railsapp"') do
   its('exit_status') { should eq 0 }
 end
+
+# Make sure Puma service is present
+describe service('puma') do
+  it { should be_enabled }
+  it { should be_installed }
+  it { should_not be_running }
+end
