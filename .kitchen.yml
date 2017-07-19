@@ -2,6 +2,7 @@
 driver:
   name: docker
   use_sudo: false
+  socket: npipe:////./pipe/docker_engine
 
 provisioner:
   name: chef_zero
