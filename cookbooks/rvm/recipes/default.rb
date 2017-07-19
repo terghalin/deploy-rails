@@ -1,3 +1,9 @@
+# Install required packages
+package 'curl' do
+  action :install
+end
+
+
 # Create user and group
 include_recipe 'rvm::user'
 
