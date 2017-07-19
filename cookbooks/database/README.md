@@ -1,4 +1,14 @@
-# database
+# database cookbook
 
-TODO: Enter the cookbook description here.
+#### Deploy PostgreSQL database
 
+## Testing
+
+### Prerequisites
+
+Ruby Gems:
+  * berkshelf
+  * kitchen-vagrant
+  * kitchen-inspec
+
+For testing with Chef Test Kitchen, use `kitchen test` command

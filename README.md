@@ -1,6 +1,6 @@
 # deploy-rails
 
-#### Deploy Rails application with attached PostgreSQL database and Puma
+#### Deploy Rails application with dedicated PostgreSQL database and Puma
 
 ## Testing
 
