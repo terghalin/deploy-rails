@@ -2,12 +2,16 @@
 
 #### Deploy Rails application with attached PostgreSQL database and Puma
 
-For testing with Chef InSpec, use this commands:
+## Testing
 
-```shell
-berks install
-kitchen test
-```
+### Prerequisites
+
+Ruby Gems:
+  * berkshelf
+  * kitchen-docker
+  * kitchen-inspec
+
+For testing with Chef Test Kitchen, use `kitchen test` command
 
 ## Troubleshooting
 
