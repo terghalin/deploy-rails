@@ -15,7 +15,7 @@ For testing with Chef Test Kitchen, use `kitchen test` command
 
 ## Troubleshooting
 
-### Kitchen
+### Test Kitchen
 
 #### 1. Unable to connect to docker socket
 
