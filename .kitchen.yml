@@ -4,6 +4,7 @@ driver:
   use_sudo: false
   # Uncomment this for docker-windows:
   # socket: npipe:////./pipe/docker_engine
+  socket: tcp://127.0.0.1:2375
 
 provisioner:
   name: chef_zero
