@@ -8,7 +8,7 @@
 
 Ruby Gems:
   * berkshelf
-  * kitchen-docker
+  * kitchen-docker ~> 2.6.0
   * kitchen-inspec
 
 For testing with Chef Test Kitchen, use `kitchen test` command

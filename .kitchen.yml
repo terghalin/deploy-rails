@@ -20,14 +20,40 @@ platforms:
   - name: ubuntu-16.04
 
 suites:
-  - name: default
+  - name: webserver
+    driver:
+      name: docker
+      run_options: --net app_network --ip 192.168.30.10
+      forward:
+        - 80:8080
+    run_list:
+      - recipe[nginx::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default/webserver_test.rb
+    attributes:
+  - name: railsapp
+    driver:
+      name: docker
+      run_options: --net app_network --ip 192.168.30.11
+      forward:
+        - 3000:3200
     run_list:
       - recipe[rvm::default]
-      - recipe[nginx::default]
-      - recipe[postgresql]
-      - recipe[postgresql::server]
       - recipe[railsapp::default]
     verifier:
       inspec_tests:
-        - test/smoke/default
-    attributes:
+        - test/smoke/default/railsapp_test.rb
+  - name: database
+    driver:
+      name: vagrant
+      network:
+      - ["forwarded_port", {guest: 5432, host: 25432}]
+      - ["app_network", {ip: "192.168.30.12"}]
+    run_list:
+      - recipe[postgresql]
+      - recipe[postgresql::server]
+      - recipe[database::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default/database_test.rb
