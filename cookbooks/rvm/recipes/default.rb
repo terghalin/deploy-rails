@@ -1,5 +1,5 @@
 # Install required packages
-package 'curl' do
+package %w(git-core bzip2 curl libpq-dev zlib1g-dev build-essential imagemagick libffi-dev python-software-properties python-psycopg2) do
   action :install
 end
 
